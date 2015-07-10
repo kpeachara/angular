@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Angular JS - Form validations</title>
+
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../../Scripts/angular.js"></script>
+</head>
+<body ng-controller="FormCtrl">
+    <div class="panel">
+    	<div class="panel-heading">
+       		<h2>Form validations - demo 1</h2>
+        </div>
+        <div class="panel-body">
+        	<form name="myform" novalidate>
+        		<div>
+        			Firstname: 
+        			<input name="firstName" 
+	        			ng-model="user.firstName"
+	        			ng-minlength="2"
+	        			/>
+	        		<span class="error-message" 
+	        			ng-show="myform.firstName.$dirty && myform.firstName.$error.required">First name required</span>	
+        		</div>
+        		<div>
+        			Phone: 
+        			<input name="phoneNum" 
+	        			ng-model="user.phoneNum"
+	        			ng-minlength="2"
+	        			/>
+	        		<span class="error-message" 
+	        			ng-show="myform.phoneNum.$dirty && myform.phoneNum.$error.required">PhoneNum is required</span>	
+        		</div> 
+        		<div>
+        			<button type="submit" ng-click="saveUser()">Submit</button>
+        		</div>
+
+        	</form>
+        </div>
+    </div>
+
+
+
+   
+    <script>
+    angular.module("myApp",[])
+    .controller('FormCtrl', ['$scope', function($scope){
+    	$scope.user = {};
+    	$scope.saveUser = function(){
+    		if($scope.myform.$valid){
+    			alert('Saved user using ajax($http)');
+    		} else {
+    			alert('Unable to save. Validation error');
+    		}
+    	}
+    }])
+    </script>
+    <style type="text/css">
+    	.error-message{
+    		color: red;
+    	} 
+    	input.ng-dirty.ng-invalid{
+    		background-color: red;
+    		border-color: red;
+    	}
+    </style>
+</body>
+</html>

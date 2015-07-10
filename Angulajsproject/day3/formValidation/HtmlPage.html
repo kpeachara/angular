@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Form validation</title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../../Scripts/angular.js"></script>
+    <script type="text/javascript">
+        angular.module('myApp', []).controller('UserController', function ($scope) {
+            $scope.user = {};
+            $scope.saveUser = function () {
+                if ($scope.myform.$valid) {
+                    alert('saved user using ajax($http)')
+                }
+                else {
+                    alert('Unable to save')
+                }
+            }
+
+
+        });
+
+    </script>
+</head>
+<body ng-controller="UserController">
+
+
+
+
+
+    
+</body>
+</html>

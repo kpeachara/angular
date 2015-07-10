@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="nameApp" ng-controller="nameApp" class="well">
+<head>
+    <meta charset="utf-8">
+    <title>Changing scope </title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <script src="../../Scripts/angular.js">
+        var nameApp = angular.module('nameApp', []);
+        nameApp.controller('nameApp', function ($scope) {
+            $scope.name = 'Krishna';
+
+            //Observer + state
+            $scope.$watch('name', function (newValue, oldValue) {
+                console.log('New value' + newValue)
+            });
+
+
+            window.setTimeout(function () {
+                $scope.address = 'Hyderabad';
+                $scope.$apply();
+                console.log($scope.address)
+            }, 5000);
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

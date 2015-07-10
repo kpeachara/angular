@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title>Transclusion</title>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <script src="app.js"></script>
+    <script src="../../Scripts/angular.js"></script>
+</head>
+<body>
+    <panetitle> Some title</panetitle>
+    <script>
+        angular.module('app', []).dirctive('panetitle', function () {
+            return {
+                restrict: 'E',
+                transclude:true,
+                template: "<div style='border:2px solid red;padding:10px'> <h1 ng-transclude> </h1></div>"
+            }
+        })
+
+    </script>
+</body>
+</html>
